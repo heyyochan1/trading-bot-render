@@ -50,8 +50,7 @@ app.post('/webhook', (req, res) => {
     const defaultReplyMarkup = {
       inline_keyboard: [
         [
-          { text: '✅入撚場', callback_data: 'activate_' + side },
-          { text: '❌不入場', callback_data: 'ignore' }
+          { text: '✅入撚場', callback_data: 'activate_' + side }
         ]
       ]
     };
@@ -108,14 +107,6 @@ bot.on('callback_query', (callbackQuery) => {
       .catch((err) => console.error('Error answering callback:', err));
 
     setTimeout(() => checkRisk(), 300000); // 5 分鐘
-  } else if (callbackData === 'ignore') {
-    bot.answerCallbackQuery(callbackQuery.id)
-      .then(() => bot.sendMessage(chatId, '❌ 交易已忽略。', {}))
-      .catch((err) => console.error('Error answering callback:', err));
-
-    tradeState.active = false;
-    tradeState.side = null;
-    tradeState.startTime = null;
   }
 });
 
