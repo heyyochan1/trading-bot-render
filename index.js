@@ -121,7 +121,7 @@ bot.on('callback_query', (callbackQuery) => {
 
 function checkRisk() {
   if (tradeState.active && tradeState.side) {
-    const riskText = `⚠️ ETH 快速風險變化提示 📡\n📅 時框：5分鐘 | ⏰ 檢查時間：${new Date().toLocaleString('zh-HK', { timeZone: 'Asia/Hong_Kong' })}\n⭐ 風險級別：${getStars(3)} (${Math.round(50)}%)\n\n📉 異常因子升幅：🌡️\n📊 成交量壓力 (高於 MA10) ✅\n📉 成交量/價格 (高於 MA10) ✅\n📈 EMA5 / EMA10 下降 ✅\n📉 MACD 死叉 ✅\n⚠️ 優先級依據：優先級低於原單\n\n💡 建議動作：平倉觀察 🛑\n💰 最佳平倉價：2500.00`;
+    const riskText = `⚠️ ETH 快速風險變化提示 📡\n📅 時框：5分鐘 | ⏰ 檢查時間：${new Date().toLocaleString('zh-HK', { timeZone: 'Asia/Hong_Kong' })}\n⭐ 風險級別：${getStars(3)} (${Math.round(50)}%)\n\n📉 異常因子升幅：🌡️\n📊 成交量壓力 (高於 MA10) ✅\n📉 成交量/價格 (高於 MA10) ✅\n📈 EMA5 / EMA10 下降 ✅\n📉 MACD 死叉 ✅\n⚠️ 優先級依據：優先級低於原單\n\n💡 建議動作：平倉觀察 🛑\n💰 最佳平倉價：3000.00`;
     bot.sendMessage(CHAT_ID, riskText, { parse_mode: 'Markdown' })
       .catch((err) => console.error('Error sending risk alert:', err));
 
