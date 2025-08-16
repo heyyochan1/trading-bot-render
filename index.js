@@ -50,7 +50,7 @@ app.post('/webhook', (req, res) => {
     const defaultReplyMarkup = {
       inline_keyboard: [
         [
-          { text: '✅入場', callback_data: 'activate_' + side },
+          { text: '✅入撚場', callback_data: 'activate_' + side },
           { text: '❌不入場', callback_data: 'ignore' }
         ]
       ]
